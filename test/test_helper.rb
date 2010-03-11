@@ -2,6 +2,7 @@ require 'test/unit'
 require 'rubygems'
 
 begin
+  require 'java' if defined?(JRUBY_VERSION)
   require 'nokogiri'
 rescue LoadError
   # Should work without nokogiri
@@ -11,7 +12,7 @@ begin
   require 'multi_rails_init'
 rescue LoadError
   # multi rails not installed, test against newest supported version of Rails
-  gem 'rails', '2.3.5'
+  gem 'rails' #, '2.3.5'
 end
 require 'active_support'
 require 'flexmock/test_unit'
